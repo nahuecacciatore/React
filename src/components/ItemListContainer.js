@@ -1,9 +1,14 @@
+import ItemList from "./ItemList"
+
 const ItemListContainer = ( {greeting}) => {
     let styles = {
-        border: `solid 2px red`
+        maxWidth: `200px`
     }
   return (
-    <div style={styles}>{greeting}</div>
+    <div>
+      <h1 className="text-center text-2xl ">{greeting}</h1>
+      <div><ItemList/></div>
+    </div>
   )
 }
 export default ItemListContainer
