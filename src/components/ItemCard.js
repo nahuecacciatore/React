@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ItemList from './ItemList'
 
 
-const ItemCard = ({id, name, price, description, img}) => {
+const ItemCard = ({id, name, price, img}) => {
   return (
     <div className='m-8 border-2'> 
     <Link to={`/NavBar/item/${id}`}>

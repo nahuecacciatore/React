@@ -1,40 +1,20 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { productos } from "./Products"
+import ItemDetailContainer, { producto } from "./ItemDetailContainer"
 
-const  ItemDetail = () => {
-
-   const { id: itemId } = useParams()
-
-   const [item, setItem] = useState({})
-
-    useEffect(() => {
-        getItemDetail().then (response => {
-            setItem( response )
-        })
-    }, [])
-    
-
-   const getItemDetail = () => { 
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve( productos.find( p => p.id == itemId) )
-        }, 3000);
-    })
-   }
+const  ItemDetail = ({producto}) => {
 
   return (
     <>
+    
     <section>
-        <img src={item.img} alt={item.name}></img>
+        <img src={producto.img} alt={producto.name}></img>
     </section>
     <div>
         <h1>Detalles del producto</h1>
-        <div>Nombre: {item.name}</div>
-        <div>Precio: {item.price}</div>
-        <p>Descripcion:{item.description}</p>
+        <div>Nombre: {producto.name}</div>
+        <div>Precio: {producto.price}</div>
+        <p>Descripcion:{producto.description}</p>
     </div>
-    
+
     
     </>
   )
