@@ -5,7 +5,7 @@ import ItemList from './ItemList'
 const ItemCard = ({id, name, price, img}) => {
   return (
     <div className='m-8 border-2'> 
-    <Link to={`/NavBar/item/${id}`}>
+    <Link to={`/item/${id}`}>
       <section>
         <img className='max-w-md' src={`/Imagenes/${img}`}></img>
       </section>

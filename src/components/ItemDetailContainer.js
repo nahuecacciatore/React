@@ -14,9 +14,9 @@ const ItemDetailContainer = () => {
         getItemDetail().then (response => {
             setProducto( response )
         })
-    }, [])
+    }, [itemId])
 
-    const getItemDetail = () => { 
+    const getItemDetail = (itemId) => { 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve( producto.find( p => p.id == itemId) )
