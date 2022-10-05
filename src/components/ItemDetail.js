@@ -4,7 +4,7 @@ const  ItemDetail = ({producto}) => {
 
   return (
     <>
-    <div className='m-8 border-2 flex flex-col justify-items-center'>
+    <div className='m-8 border-2 flex flex-col items-center'>
       <div>
         <section>
           <img className="max-w-xs" src={producto.img} alt={producto.name}></img>
