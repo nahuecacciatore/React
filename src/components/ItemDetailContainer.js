@@ -8,18 +8,18 @@ import { productos } from "./Products";
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
 
-    const { id: itemId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
         getItemDetail().then (response => {
             setProducto( response )
         })
-    }, [itemId])
+    }, [id])
 
     const getItemDetail = (itemId) => { 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve( producto.find( p => p.id == itemId) )
+                resolve( productos.find( p => p.id == id) )
             }, 3000);
         })
        }
