@@ -7,7 +7,7 @@ const ItemCard = ({id, name, price, img}) => {
     <div className='m-8 border-2'> 
     <Link to={`/item/${id}`}>
       <section>
-        <img className='max-w-md' src={`/Imagenes/${img}`}></img>
+        <img className='max-w-md' src={img}></img>
       </section>
       <div>
         <h2 className='underline underline-offset-1 uppercase'>{name}</h2>
