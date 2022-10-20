@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ItemCard from "./ItemCard"
+import { ItemCard } from "./ItemCard"
 import { productos } from "./Products"
 
 
@@ -9,12 +9,8 @@ const ItemList = () => {
 
 
     useEffect (()=> {
-        getProductos()
-        .then( res => {
+        getProductos().then( res => {
             setItem( res )
-         })
-         .catch( err => {
-            console.log(('err: ' + err));
          })
     }, [])
 

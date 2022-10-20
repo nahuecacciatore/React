@@ -43,21 +43,21 @@ const productos = [
     {
         id: 7, 
         name: 'Vans Ward', 
-        price: '60',
+        price: '70',
         description: 'El Vans Ward, un modelo bajo de estilo skater, confeccionada con canvas resistente y presenta la icónica banda de cuero lateral en los laterales, suela de goma Waffle original de la marca.',
         img: 'https://i.imgur.com/3FfEWG8.png'
     },
     {
         id: 8, 
         name: 'Vans Old Skool Floral', 
-        price: '60',
+        price: '80',
         description: 'Zapatilla, suede/canvas, ojales metálicos, lengüeta acolchada. Modelo Old Skool floral. ',
         img: 'https://i.imgur.com/Xt6Mvz3.png'
     },
     {
         id: 9, 
         name: 'Vans Old Skool Checkboard', 
-        price: '60',
+        price: '90',
         description: 'Zapatilla, suede/canvas, ojales metálicos, lengüeta acolchada. Modelo Old Skool con patron Checkboard. ',
         img: 'https://i.imgur.com/AObK2bh.png'
     },
