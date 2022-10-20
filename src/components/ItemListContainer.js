@@ -10,7 +10,10 @@ const ItemListContainer = ( {greeting}) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getProducts()
+    setTimeout(() => {
+      getProducts()
+      setLoading(false)
+    }, 3000);
   }, [])
   
   const getProducts = () => { 
@@ -20,17 +23,12 @@ const ItemListContainer = ( {greeting}) => {
           const productsData = res.docs.map( d => ({id: d.id, ...d.data()}))
           console.log(productsData);
           setProducts(productsData)
-          setLoading(false)
         })
         
    }
   
   return (
     <div>
-      { loading ? <h1>Cargando...</h1>
-        :
-
-      <>
       <h1 className="text-center text-2xl ">
         {greeting}
       </h1>
@@ -39,8 +37,6 @@ const ItemListContainer = ( {greeting}) => {
         {products.map( p =><ItemCard key={p.id} {...p}/>)}
       </div>
 
-    </>
-  }
     </div>
   )
 }

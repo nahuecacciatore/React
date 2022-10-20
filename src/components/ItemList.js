@@ -25,6 +25,7 @@ const ItemList = () => {
 
   return (
     <div>
+        
         {item.map( productos => 
         <ItemCard key={productos.id} {...productos}/> )}
     </div>
