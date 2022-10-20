@@ -1,15 +1,14 @@
-import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import { productos } from "./Products";
 
 
 
 const ItemDetailContainer = () => {
 
     const { id } = useParams()
-    const [product, setProduct] = useState()
+    const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(true)
   
     useEffect(() => {
@@ -24,17 +23,15 @@ const ItemDetailContainer = () => {
           const productCollection = collection(db, 'items')
           const docRef = doc(productCollection, id)
           getDoc(docRef).then ( res => {
-            console.log(res.data);
-            setProduct(res.data)
+            console.log(res.data());
+            setProduct(res.data())
           } )
           
      }
     
   return (
     <div>
-        <h1>Id del producto : {}</h1>
-{/*         <ItemDetail producto={producto}/> */}
-
+        <ItemDetail producto={product}/>
     </div>
 
   )

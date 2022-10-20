@@ -1,6 +1,13 @@
+import { useCart } from "../context/CartContext"
 import ItemDetailContainer, { producto } from "./ItemDetailContainer"
 
 const  ItemDetail = ({producto}) => {
+
+  const {addToCart} = useCart()
+
+  const addHandler = () => {
+    addToCart(producto)
+   }
 
   return (
     <>
@@ -22,11 +29,8 @@ const  ItemDetail = ({producto}) => {
           </div>
           <p className="max-w-xs">Descripcion:{producto.description}</p>
       </div>
-    <button className="btn m-6">AÑADIR AL CARRITO</button>
-    </div>
-    
-
-    
+    <button onClick={addHandler} className="btn m-6">AÑADIR AL CARRITO</button>
+    </div> 
     </>
   )
 }

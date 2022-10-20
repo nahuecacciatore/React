@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react"
 import { ItemCard } from "./ItemCard"
-import { productos } from "./Products"
 
 
-const ItemList = () => {
-
-    const [item, setItem] = useState([])
-
-
-    useEffect (()=> {
-        getProductos().then( res => {
-            setItem( res )
-         })
-    }, [])
-
-    const getProductos = () => {
-        return new Promise( (resolve) => { 
-            setTimeout( ()=>{
-                resolve( productos )
-            }, 3000)
-        })
-    }
-
-
+const ItemList = ({producto, greeting}) => {
   return (
-    <div>
-        
-        {item.map( productos => 
-        <ItemCard key={productos.id} {...productos}/> )}
+    <div>     
+        <h1 className="text-center text-2xl ">
+             {greeting}
+        </h1>
+
+      <div className="flex flex-col items-center">
+          {producto.map( p =><ItemCard key={p.id} {...p}/>)}
+      </div>
+
     </div>
   )
 }

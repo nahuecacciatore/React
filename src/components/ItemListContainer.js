@@ -1,7 +1,5 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import { ItemCard } from "./ItemCard"
 import ItemList from "./ItemList"
 
 const ItemListContainer = ( {greeting}) => {
@@ -28,16 +26,7 @@ const ItemListContainer = ( {greeting}) => {
    }
   
   return (
-    <div>
-      <h1 className="text-center text-2xl ">
-        {greeting}
-      </h1>
-
-      <div className="flex flex-col items-center">
-        {products.map( p =><ItemCard key={p.id} {...p}/>)}
-      </div>
-
-    </div>
+    <div><ItemList producto={products}/></div>
   )
 }
 export default ItemListContainer
