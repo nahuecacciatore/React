@@ -8,6 +8,7 @@ const Cart = () => {
     <div>
         <div>carrito</div>
         {products.map( (p, i) => <li key={i}>{p.name}</li>)}
+        <button className="btn" onClick={clearCart}>Limpiar carrito</button>
     </div>
   )
 }
