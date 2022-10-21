@@ -1,6 +1,7 @@
 import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { MoonLoader} from "react-spinners";
 import ItemDetail from "./ItemDetail";
 
 
@@ -31,7 +32,24 @@ const ItemDetailContainer = () => {
     
   return (
     <div>
+      {
+        loading ?
+
+        <div className="flex justify-center items-center w-full h-screen">
+          <MoonLoader 
+        
+          color={"#532bd4"}
+          loading={loading}
+          size={100}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+          />
+      </div>
+      
+        :
+
         <ItemDetail producto={product}/>
+      }
     </div>
 
   )

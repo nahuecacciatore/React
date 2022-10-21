@@ -1,8 +1,9 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
+import MoonLoader from "react-spinners/MoonLoader";
 
-const ItemListContainer = ( {greeting}) => {
+const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -24,9 +25,32 @@ const ItemListContainer = ( {greeting}) => {
         })
         
    }
-  
+
   return (
-    <div><ItemList producto={products}/></div>
+    <>
+    {
+      loading ?
+      <div className="flex justify-center items-center w-full h-screen">
+          <MoonLoader 
+        
+          color={"#532bd4"}
+          loading={loading}
+          size={100}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+          />
+      </div>
+    
+      :
+
+    <div>
+        <h1 className="text-center text-2xl ">
+             {greeting}
+        </h1>
+      <ItemList producto={products}/>
+    </div>
+    }
+    </>
   )
 }
 export default ItemListContainer

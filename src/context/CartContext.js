@@ -1,6 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-const CartContext = createContext() 
+const CartContext = createContext({
+    products: [],
+    addToCart: () => {},
+    clearCart: () => {},
+    count: 0
+}) 
 
 const useCart = () => { 
     return useContext(CartContext)
@@ -8,7 +13,7 @@ const useCart = () => {
 
  const CartContextProvider = ( {children} ) => {
 
-    const [products, setProducts] = useState()
+    const [products, setProducts] = useState([])
     const addToCart = ( product ) => {
         setProducts( products => [...products, product])
     }
@@ -21,7 +26,8 @@ const useCart = () => {
     const context = {
         products:  products,
         addToCart: addToCart,
-        clearCart: clearCart
+        clearCart: clearCart,
+        count: products.length
     } 
 
    return (
