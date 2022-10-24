@@ -1,23 +1,28 @@
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import MoonLoader from "react-spinners/MoonLoader";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const {categoryId} = useParams()
 
   useEffect(() => {
     setTimeout(() => {
       getProducts()
       setLoading(false)
     }, 3000);
-  }, [])
+  }, [categoryId])
   
   const getProducts = () => { 
         const db = getFirestore()
-        const productCollection = collection(db, 'items')
+        const productCollection = categoryId
+          ? query(collection(db, "items")
+          , where ("category", "==", categoryId))
+          : collection(db, 'items')
         getDocs(productCollection).then ( res => {
           const productsData = res.docs.map( d => ({id: d.id, ...d.data()}))
           console.log(productsData);

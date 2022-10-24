@@ -14,9 +14,10 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path={'/'        } element={<ItemListContainer greeting='¡Bienvenido a mi tienda!'/>}/>
+          <Route path={'/'} element={<ItemListContainer greeting='¡Bienvenido a mi tienda!'/>}/>
+          <Route path={'/category/:categoryId'} element={<ItemListContainer greeting='¡Bienvenido a mi tienda!'/>}/>
           <Route path={'/item/:id'} element={<ItemDetailContainer/>}/>
-          <Route path={'/cart'    } element={<Cart/>}/>
+          <Route path={'/cart'} element={<Cart/>}/>
         </Routes> 
       </BrowserRouter>
     </CartContextProvider>

@@ -11,9 +11,9 @@ const NavBar = () => {
       </div>
    <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal p-0">
-      <li><Link to= '/Nike'>Nike</Link></li>
-      <li><Link to= '/Adidas'>Adidas</Link></li>
-      <li><Link to= '/Vans'>Vans</Link></li>
+      <li><Link to= '/category/nike'>Nike</Link></li>
+      <li><Link to= '/category/adidas'>Adidas</Link></li>
+      <li><Link to= '/category/vans'>Vans</Link></li>
     </ul>
   </div>
 <CartWidget/> 
